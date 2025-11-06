@@ -1,25 +1,36 @@
 # Aegis Landing Page
 
-Static marketing landing page for the Aegis dashboard experience.
+Modern marketing landing page for the Aegis dashboard experience, rebuilt as a lightweight React single-page application with fluid motion and polished gradients.
 
 ## Getting started
 
-Open `index.html` directly in your browser or use a simple static file server:
+Install dependencies and launch the Vite development server:
 
 ```bash
-python -m http.server 4173
+npm install
+npm run dev
 ```
 
-Then visit [http://localhost:4173](http://localhost:4173) and explore the interactive sections.
+The app will be available at the URL printed in the terminal (default http://localhost:5173).
+
+To generate a production build:
+
+```bash
+npm run build
+```
+
+Preview the production output locally:
+
+```bash
+npm run preview
+```
 
 ## Features
 
-- Hero section with floating visual tiles and primary email capture form
-- Credibility strip with animated shimmer badges
-- Platform value pillars with hover lift interactions
-- Interactive dashboard showcase with tabbed previews and parallax layers
-- Guided onboarding timeline with familiar status pills
-- Social proof placeholders and animated KPI counters
-- Secondary email capture band and accessible footer navigation
-- Client-side email validation with local storage fallback for submissions
-- Motion respects `prefers-reduced-motion`
+- Hero section with floating glassmorphic tiles, animated via Framer Motion
+- Credibility shimmer strip and value pillars with cascading reveals
+- Interactive dashboard showcase with tabbed previews and layered transitions
+- Guided onboarding timeline with status pills and motion-enhanced steps
+- Testimonial and KPI counters with smooth in-view number animations
+- Reusable email capture forms with validation, consent handling, and local storage fallback
+- Secondary CTA band and responsive footer navigation respecting reduced motion preferences
