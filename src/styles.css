@@ -312,6 +312,13 @@ a:focus {
   max-width: clamp(18rem, 34vw, 24rem);
 }
 
+.hero__visual .hero__compliance {
+  position: absolute;
+  right: clamp(-1rem, -2vw, -2.5rem);
+  bottom: clamp(-3rem, -6vw, -4rem);
+  max-width: clamp(18rem, 36vw, 22rem);
+}
+
 .hero__floating {
   position: absolute;
   border-radius: 28px;
