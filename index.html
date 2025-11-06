@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aegis Platform — Secure Every Commit</title>
+    <meta
+      name="description"
+      content="Automate security quality gates, surface real-time findings, and integrate with GitHub Actions to ship with confidence."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="hero" id="top">
+        <div class="hero__floating hero__floating--tile" aria-hidden="true"></div>
+        <div class="hero__floating hero__floating--card" aria-hidden="true"></div>
+        <div class="hero__floating hero__floating--pill" aria-hidden="true"></div>
+        <div class="hero__content container">
+          <div class="hero__text">
+            <span class="eyebrow">Continuous security assurance</span>
+            <h1>Ship with confidence. Every commit.</h1>
+            <p>
+              Aegis automates security and quality gates across your pipelines so teams can surface
+              actionable findings, enforce policies, and deliver resilient releases without slowing
+              down delivery.
+            </p>
+            <form class="cta-form" id="hero-signup" novalidate>
+              <div class="cta-form__grid">
+                <label class="sr-only" for="hero-name">Name (optional)</label>
+                <input type="text" id="hero-name" name="name" placeholder="Name (optional)" />
+                <label class="sr-only" for="hero-email">Email</label>
+                <input
+                  type="email"
+                  id="hero-email"
+                  name="email"
+                  placeholder="work email"
+                  required
+                  autocomplete="email"
+                />
+                <button type="submit" class="button button--primary">Join the early access list</button>
+              </div>
+              <label class="checkbox">
+                <input type="checkbox" name="consent" id="hero-consent" />
+                <span>I agree to receive security updates and launch invites from Aegis.</span>
+              </label>
+              <p class="form-message" id="hero-message" role="status" aria-live="polite"></p>
+            </form>
+            <p class="trust-copy">GDPR-ready. Unsubscribe anytime.</p>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <div class="dashboard-preview">
+              <div class="dashboard-preview__column">
+                <div class="kpi-card">
+                  <span class="kpi-card__label">Global Pass Rate</span>
+                  <strong class="kpi-card__value">92%</strong>
+                  <span class="status-pill status-pill--pass">PASS</span>
+                </div>
+                <div class="kpi-card kpi-card--secondary">
+                  <span class="kpi-card__label">Critical Findings</span>
+                  <strong class="kpi-card__value">3</strong>
+                  <span class="status-pill status-pill--fail">ALERT</span>
+                </div>
+              </div>
+              <div class="dashboard-preview__column">
+                <div class="repo-card">
+                  <div class="avatar" aria-hidden="true">AP</div>
+                  <div>
+                    <h3>api-gateway</h3>
+                    <p>Last scan 12m ago</p>
+                  </div>
+                  <span class="status-pill status-pill--attention">ATTENTION</span>
+                </div>
+                <div class="repo-card">
+                  <div class="avatar" aria-hidden="true">WS</div>
+                  <div>
+                    <h3>web-storefront</h3>
+                    <p>Last scan 6m ago</p>
+                  </div>
+                  <span class="status-pill status-pill--pass">PASS</span>
+                </div>
+                <div class="findings-card">
+                  <h4>Secrets Detected</h4>
+                  <ul>
+                    <li>
+                      <span class="dot dot--fail" aria-hidden="true"></span>
+                      AWS key committed <time datetime="2024-06-12">12 Jun</time>
+                    </li>
+                    <li>
+                      <span class="dot dot--attention" aria-hidden="true"></span>
+                      Token rotation overdue
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="credibility" aria-label="Compliance and customers">
+          <div class="container credibility__content">
+            <span class="credibility__eyebrow">Trusted by teams securing cloud-native releases</span>
+            <div class="credibility__logos" role="list">
+              <span role="listitem">SOC 2 Type II</span>
+              <span role="listitem">ISO 27001</span>
+              <span role="listitem">GDPR Ready</span>
+              <span role="listitem">Fortress Labs</span>
+              <span role="listitem">EdgeSpan</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="pillars" id="value" aria-labelledby="value-heading">
+          <div class="container">
+            <h2 id="value-heading">Automate, surface, and enforce with clarity</h2>
+            <div class="pillars__grid">
+              <article class="pillar">
+                <div class="pillar__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" role="img" aria-hidden="true"><path d="M6 26l7-18 5 12 3-7 5 13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Automated Quality Gates</h3>
+                <p>
+                  Configure tenant-aware thresholds, toggle enforcement per repository, and let Aegis
+                  block risky merges before they land in production.
+                </p>
+              </article>
+              <article class="pillar">
+                <div class="pillar__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" role="img" aria-hidden="true"><path d="M6 8h20M6 16h20M6 24h12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Real-time Findings</h3>
+                <p>
+                  Consolidate SCA, SBOM, secret scanning, and vulnerability triage in one command
+                  center built for fast remediation.
+                </p>
+              </article>
+              <article class="pillar">
+                <div class="pillar__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" role="img" aria-hidden="true"><path d="M6 8h20v16H6z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 12h8M10 16h12M10 20h6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+                </div>
+                <h3>GitHub Actions Integration</h3>
+                <p>
+                  Drop in the Aegis workflow snippet to run policy checks in CI/CD with tenant-aware
+                  secrets and automatic gate enforcement.
+                </p>
+              </article>
+              <article class="pillar">
+                <div class="pillar__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" role="img" aria-hidden="true"><path d="M16 6a6 6 0 016 6v4h2a2 2 0 012 2v6H6v-6a2 2 0 012-2h2v-4a6 6 0 016-6zm0 0v10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Developer-Friendly Insights</h3>
+                <p>
+                  Investigate with intuitive timelines, repository filters, and drill-down panels that
+                  keep developers in flow.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="showcase" id="showcase" aria-labelledby="showcase-heading">
+          <div class="container">
+            <div class="showcase__header">
+              <h2 id="showcase-heading">Preview the dashboard experience</h2>
+              <p>
+                Scroll through live-inspired UI states to see how Aegis translates scans into
+                high-signal dashboards and guided setup.
+              </p>
+            </div>
+            <div class="tab-chips" role="tablist" aria-label="Dashboard views">
+              <button class="tab-chip active" role="tab" aria-selected="true" data-target="dashboard">
+                Dashboard
+              </button>
+              <button class="tab-chip" role="tab" aria-selected="false" data-target="setup">
+                Setup
+              </button>
+            </div>
+            <div class="showcase__panels">
+              <div class="panel panel--dashboard active" id="dashboard" role="tabpanel">
+                <div class="panel__layer panel__layer--primary">
+                  <div class="panel__callout">
+                    <h3>Global Summary</h3>
+                    <p>Track pass rates, blockers, and remediation velocity at a glance.</p>
+                  </div>
+                  <div class="panel__image panel__image--summary" aria-hidden="true"></div>
+                </div>
+                <div class="panel__layer panel__layer--secondary">
+                  <div class="panel__callout">
+                    <h3>Repository health</h3>
+                    <p>Filter by team, language, or risk score to prioritize the next fix.</p>
+                  </div>
+                  <div class="panel__image panel__image--repos" aria-hidden="true"></div>
+                </div>
+                <div class="panel__layer panel__layer--tertiary">
+                  <div class="panel__callout">
+                    <h3>Tool Findings</h3>
+                    <p>Surface SBOM alerts, SAST results, and secrets with inline recommendations.</p>
+                  </div>
+                  <div class="panel__image panel__image--findings" aria-hidden="true"></div>
+                </div>
+              </div>
+              <div class="panel panel--setup" id="setup" role="tabpanel" hidden>
+                <div class="panel__layer panel__layer--primary">
+                  <div class="panel__callout">
+                    <h3>API access</h3>
+                    <p>Generate scoped keys for automation with one click.</p>
+                  </div>
+                  <div class="panel__image panel__image--api" aria-hidden="true"></div>
+                </div>
+                <div class="panel__layer panel__layer--secondary">
+                  <div class="panel__callout">
+                    <h3>Quality gates</h3>
+                    <p>Set pass/fail criteria by severity, coverage, and SLAs.</p>
+                  </div>
+                  <div class="panel__image panel__image--gates" aria-hidden="true"></div>
+                </div>
+                <div class="panel__layer panel__layer--tertiary">
+                  <div class="panel__callout">
+                    <h3>CI workflow</h3>
+                    <p>Copy the GitHub Actions snippet to enforce policies in under 5 minutes.</p>
+                  </div>
+                  <div class="panel__image panel__image--ci" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="timeline" id="workflow" aria-labelledby="timeline-heading">
+          <div class="container">
+            <h2 id="timeline-heading">Guided workflow from day zero</h2>
+            <ol class="timeline__steps">
+              <li class="timeline__step">
+                <div class="timeline__badge status-pill status-pill--pass">Step 1</div>
+                <div>
+                  <h3>Connect your repositories</h3>
+                  <p>Secure OAuth onboarding with tenant-aware scoping for fast adoption.</p>
+                </div>
+              </li>
+              <li class="timeline__step">
+                <div class="timeline__badge status-pill status-pill--attention">Step 2</div>
+                <div>
+                  <h3>Run the first scan</h3>
+                  <p>Kick off automated baselines across SBOM, SCA, secrets, and vuln detection.</p>
+                </div>
+              </li>
+              <li class="timeline__step">
+                <div class="timeline__badge status-pill status-pill--fail">Step 3</div>
+                <div>
+                  <h3>Review prioritized findings</h3>
+                  <p>Spotlight remediation-ready issues with contextual guidance for developers.</p>
+                </div>
+              </li>
+              <li class="timeline__step">
+                <div class="timeline__badge status-pill status-pill--pass">Step 4</div>
+                <div>
+                  <h3>Enforce quality gates</h3>
+                  <p>Flip enforcement to block regressions and sustain compliance confidently.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="social-proof" id="proof" aria-labelledby="proof-heading">
+          <div class="container">
+            <div class="social-proof__intro">
+              <h2 id="proof-heading">Loved by secure engineering teams</h2>
+              <p>Teams rely on Aegis to protect releases without slowing shipping velocity.</p>
+            </div>
+            <div class="social-proof__grid">
+              <blockquote class="testimonial">
+                <p>
+                  “Aegis gave our platform engineering group the visibility we needed to enforce
+                  security gates with zero drama.”
+                </p>
+                <cite>Placeholder testimonial — Your logo here</cite>
+              </blockquote>
+              <div class="stats">
+                <div class="stat" data-target="92" data-suffix="%">
+                  <div class="stat__value">0</div>
+                  <p>Pass rate across teams</p>
+                </div>
+                <div class="stat" data-target="37">
+                  <div class="stat__value">0</div>
+                  <p>Repositories secured during beta</p>
+                </div>
+                <div class="stat" data-target="5" data-suffix=" min">
+                  <div class="stat__value">0</div>
+                  <p>Minute onboarding to first scan</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-band" aria-labelledby="cta-band-heading">
+          <div class="container">
+            <div>
+              <h2 id="cta-band-heading">Get launch updates first</h2>
+              <p>Join the early access list for exclusive hardening guides and release invites.</p>
+            </div>
+            <form class="cta-form cta-form--inline" id="footer-signup" novalidate>
+              <label class="sr-only" for="footer-email">Email</label>
+              <input
+                type="email"
+                id="footer-email"
+                name="email"
+                placeholder="name@company.com"
+                required
+                autocomplete="email"
+              />
+              <button type="submit" class="button button--secondary">Notify me</button>
+              <p class="form-message" id="footer-message" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer__content">
+          <div class="footer__brand">
+            <span class="logo">Aegis</span>
+            <p>Continuous security assurance for modern engineering teams.</p>
+          </div>
+          <nav class="footer__nav" aria-label="Footer navigation">
+            <a href="#value">Product</a>
+            <a href="#showcase">Docs</a>
+            <a href="#workflow">Support</a>
+          </nav>
+          <div class="footer__meta">
+            <div class="footer__social">
+              <a href="https://github.com" aria-label="GitHub">GitHub</a>
+              <a href="https://www.linkedin.com" aria-label="LinkedIn">LinkedIn</a>
+              <a href="mailto:hello@aegis.io" aria-label="Email">Email</a>
+            </div>
+            <p class="footer__legal">
+              © <span id="year"></span> Aegis Labs. By joining the list you consent to receive
+              product communications. You can unsubscribe anytime.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="scripts.js" defer></script>
+  </body>
+</html>
