@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import SignupForm from './SignupForm.jsx';
+import logoSrc from '../assets/aegis-logo.svg';
 
 const floaters = [
   'hero__floating hero__floating--tile',
@@ -16,6 +17,57 @@ const visualVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut', delay: 0.2 } },
 };
+
+const providerLogos = [
+  {
+    name: 'GitHub Actions',
+    icon: (
+      <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+        <circle cx="16" cy="16" r="16" className="provider-icon provider-icon--github" />
+        <path
+          d="M19.7 14.2c.2-.4.3-.9.3-1.4 0-1.8-1.4-3.4-3.6-3.4s-3.6 1.6-3.6 3.4c0 .5.1 1 .3 1.4-1.5.1-2.9.9-2.9 2.7 0 1.9 1.5 3 3.8 3.3-.4.3-.5.8-.5 1.3 0 .9.1 1.6.1 1.8 0 .1-.1.3-.4.3-2.6-.9-4.3-3.3-4.3-6.2 0-3.6 2.7-6.4 6.6-6.4s6.6 2.8 6.6 6.4c0 2.9-1.7 5.3-4.3 6.2-.3 0-.4-.2-.4-.3 0-.2.1-.9.1-1.8 0-.9-.2-1.5-.7-1.8 2.3-.3 3.9-1.4 3.9-3.3 0-1.8-1.4-2.6-2.9-2.7Z"
+          className="provider-icon__glyph"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: 'GitLab',
+    icon: (
+      <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+        <circle cx="16" cy="16" r="16" className="provider-icon provider-icon--gitlab" />
+        <path
+          d="M16 23.6 8.8 16l2.4-7.2 2.7 6.2h4.2l2.7-6.2L23.2 16Z"
+          className="provider-icon__glyph"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: 'Bitbucket',
+    icon: (
+      <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+        <circle cx="16" cy="16" r="16" className="provider-icon provider-icon--bitbucket" />
+        <path
+          d="M9.8 9.6h12.4l-1.2 12.8h-9.9Zm4.7 9.6h3l.7-4.5h-4.4Z"
+          className="provider-icon__glyph"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: 'Azure DevOps',
+    icon: (
+      <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+        <circle cx="16" cy="16" r="16" className="provider-icon provider-icon--azure" />
+        <path
+          d="m11.2 20.4 2.8-10 6.8 5.4-3 5.8-3.7.4Z"
+          className="provider-icon__glyph"
+        />
+      </svg>
+    ),
+  },
+];
 
 const Hero = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -54,6 +106,28 @@ const Hero = () => {
           }
         />
       ))}
+      <div className="hero__top container">
+        <motion.img
+          src={logoSrc}
+          alt="Aegis"
+          className="hero__logo"
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        />
+        <motion.div
+          className="hero__compliance"
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.1 }}
+        >
+          <span className="hero__compliance-badge">Compliance-first</span>
+          <p>
+            Continuous alignment with OWASP ASVS, SOC2, ISO 27001, and industry benchmarks built into every policy
+            you enforce.
+          </p>
+        </motion.div>
+      </div>
       <div className="hero__content container">
         <motion.div className="hero__text" variants={textVariants}>
           <span className="eyebrow">Continuous security assurance</span>
@@ -70,6 +144,37 @@ const Hero = () => {
             submitLabel="Join the early access list"
           />
           <p className="trust-copy">GDPR-ready. Unsubscribe anytime.</p>
+          <motion.div
+            className="hero__providers"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { staggerChildren: 0.1, delayChildren: 0.6 },
+              },
+            }}
+          >
+            <motion.span className="hero__providers-label" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+              Works with every git provider &amp; CI/CD pipeline
+            </motion.span>
+            <div className="hero__providers-logos">
+              {providerLogos.map(({ name, icon }) => (
+                <motion.div
+                  key={name}
+                  className="hero__provider"
+                  variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }}
+                  whileHover={shouldReduceMotion ? undefined : { y: -6, rotate: -2 }}
+                  transition={{ type: 'spring', stiffness: 240, damping: 18 }}
+                >
+                  {icon}
+                  <span>{name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
         <motion.div className="hero__visual" variants={visualVariants}>
           <div className="dashboard-preview" aria-hidden="true">
@@ -116,6 +221,10 @@ const Hero = () => {
                   <li>
                     <span className="dot dot--attention" aria-hidden="true"></span>
                     Token rotation overdue
+                  </li>
+                  <li>
+                    <span className="dot dot--pass" aria-hidden="true"></span>
+                    Policy pack meets OWASP ASVS L2
                   </li>
                 </ul>
               </div>
