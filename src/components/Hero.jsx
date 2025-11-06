@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import SignupForm from './SignupForm.jsx';
-import logoSrc from '../assets/aegis-logo.svg';
 
 const floaters = [
   'hero__floating hero__floating--tile',
@@ -106,28 +105,20 @@ const Hero = () => {
           }
         />
       ))}
-      <div className="hero__top container">
-        <motion.img
-          src={logoSrc}
-          alt="Aegis"
-          className="hero__logo"
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        />
-        <motion.div
-          className="hero__compliance"
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.1 }}
-        >
-          <span className="hero__compliance-badge">Compliance-first</span>
-          <p>
-            Continuous alignment with OWASP ASVS, SOC2, ISO 27001, and industry benchmarks built into every policy
-            you enforce.
-          </p>
-        </motion.div>
-      </div>
+      <motion.div
+        className="hero__intro container"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: 'easeOut' }}
+      >
+        <span className="hero__brand">
+          AEGIS
+        </span>
+        <p className="hero__intro-copy">
+          Security assurance for modern delivery teams. Orchestrate automated checks, policy enforcement, and
+          risk-aware insights without adding friction to your release flow.
+        </p>
+      </motion.div>
       <div className="hero__content container">
         <motion.div className="hero__text" variants={textVariants}>
           <span className="eyebrow">Continuous security assurance</span>
@@ -230,6 +221,18 @@ const Hero = () => {
               </div>
             </div>
           </div>
+          <motion.div
+            className="hero__compliance"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
+          >
+            <span className="hero__compliance-badge">Compliance-first</span>
+            <p>
+              Continuous alignment with OWASP ASVS, SOC2, ISO 27001, and industry benchmarks built into every
+              policy you enforce.
+            </p>
+          </motion.div>
         </motion.div>
       </div>
     </motion.header>
