@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import SignupForm from './SignupForm.jsx';
-import logoSrc from '../assets/aegis-logo.svg';
 
 const floaters = [
   'hero__floating hero__floating--tile',
@@ -106,28 +105,74 @@ const Hero = () => {
           }
         />
       ))}
-      <div className="hero__top container">
-        <motion.img
-          src={logoSrc}
-          alt="Aegis"
-          className="hero__logo"
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        />
-        <motion.div
-          className="hero__compliance"
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.1 }}
-        >
-          <span className="hero__compliance-badge">Compliance-first</span>
-          <p>
-            Continuous alignment with OWASP ASVS, SOC2, ISO 27001, and industry benchmarks built into every policy
-            you enforce.
-          </p>
-        </motion.div>
-      </div>
+      <motion.div
+        className="hero__intro container"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: 'easeOut' }}
+      >
+        <div className="hero__intro-grid">
+          <div className="hero__intro-text">
+            <span className="hero__brand">AEGIS</span>
+            <p className="hero__intro-copy">
+              Security assurance for modern delivery teams. Automate branch protection, enforce policy guardrails,
+              and ship only the builds that clear every quality signal.
+            </p>
+          </div>
+          <motion.div
+            className="hero__intro-visual"
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.15 }}
+            aria-hidden="true"
+          >
+            <div className="pipeline-diagram">
+              <div className="pipeline-diagram__glow" />
+              <div className="pipeline-track">
+                <div className="pipeline-node pipeline-node--source">
+                  <span className="pipeline-node__badge">Commit</span>
+                  <strong>Source Control</strong>
+                  <p>Pull requests, feature branches, hotfixes.</p>
+                </div>
+                <div className="pipeline-connector" aria-hidden="true">
+                  <span className="pipeline-connector__pulse" />
+                </div>
+                <div className="pipeline-gate">
+                  <span className="pipeline-gate__icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" role="img" focusable="false">
+                      <path
+                        d="M24 6 8 12v11c0 9.4 6.8 18.5 16 21 9.2-2.5 16-11.6 16-21V12Z"
+                        fill="currentColor"
+                        opacity="0.22"
+                      />
+                      <path
+                        d="M24 8.2 10.4 13v10c0 8 5.8 15.8 13.6 18.3 7.8-2.5 13.6-10.3 13.6-18.3V13Z"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      />
+                      <path
+                        d="M20.4 23.6 18 21.2l-2.2 2.2 4.6 4.6 11-11-2.2-2.2Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                  <strong>AEGIS Quality Gate</strong>
+                  <p>Secrets, IaC, SAST, and policy packs block risky merges before build.</p>
+                </div>
+                <div className="pipeline-connector" aria-hidden="true">
+                  <span className="pipeline-connector__pulse pipeline-connector__pulse--active" />
+                </div>
+                <div className="pipeline-node pipeline-node--release">
+                  <span className="pipeline-node__badge">Release</span>
+                  <strong>Trusted Build</strong>
+                  <p>Only compliant artifacts advance to CI and deployment.</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
       <div className="hero__content container">
         <motion.div className="hero__text" variants={textVariants}>
           <span className="eyebrow">Continuous security assurance</span>
@@ -230,6 +275,18 @@ const Hero = () => {
               </div>
             </div>
           </div>
+          <motion.div
+            className="hero__compliance"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
+          >
+            <span className="hero__compliance-badge">Compliance-first</span>
+            <p>
+              Continuous alignment with OWASP ASVS, SOC2, ISO 27001, and industry benchmarks built into every
+              policy you enforce.
+            </p>
+          </motion.div>
         </motion.div>
       </div>
     </motion.header>
