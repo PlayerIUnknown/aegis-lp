@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import SignupForm from './SignupForm.jsx';
 
@@ -68,6 +69,38 @@ const providerLogos = [
   },
 ];
 
+const pipelineStages = [
+  {
+    key: 'code',
+    badge: 'Commit',
+    title: 'Code',
+    description: 'Pull requests, feature branches, and hotfixes line up for automated review.',
+    tone: 'source',
+  },
+  {
+    key: 'gate',
+    badge: 'Gate',
+    title: 'AEGIS Quality Gate',
+    description: 'Secrets, IaC, SAST, and policy packs block risky merges before build.',
+    isGate: true,
+    tone: 'gate',
+  },
+  {
+    key: 'build',
+    badge: 'Build',
+    title: 'Secure Build',
+    description: 'Signed artifacts, SBOM attestation, and dependency controls prepare trusted releases.',
+    tone: 'build',
+  },
+  {
+    key: 'production',
+    badge: 'Release',
+    title: 'Production',
+    description: 'Deploy with complete audit evidence and live policy enforcement.',
+    tone: 'release',
+  },
+];
+
 const Hero = () => {
   const shouldReduceMotion = useReducedMotion();
 
@@ -129,45 +162,64 @@ const Hero = () => {
             <div className="pipeline-diagram">
               <div className="pipeline-diagram__glow" />
               <div className="pipeline-track">
-                <div className="pipeline-node pipeline-node--source">
-                  <span className="pipeline-node__badge">Commit</span>
-                  <strong>Source Control</strong>
-                  <p>Pull requests, feature branches, hotfixes.</p>
-                </div>
-                <div className="pipeline-connector" aria-hidden="true">
-                  <span className="pipeline-connector__pulse" />
-                </div>
-                <div className="pipeline-gate">
-                  <span className="pipeline-gate__icon" aria-hidden="true">
-                    <svg viewBox="0 0 48 48" role="img" focusable="false">
-                      <path
-                        d="M24 6 8 12v11c0 9.4 6.8 18.5 16 21 9.2-2.5 16-11.6 16-21V12Z"
-                        fill="currentColor"
-                        opacity="0.22"
-                      />
-                      <path
-                        d="M24 8.2 10.4 13v10c0 8 5.8 15.8 13.6 18.3 7.8-2.5 13.6-10.3 13.6-18.3V13Z"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                      <path
-                        d="M20.4 23.6 18 21.2l-2.2 2.2 4.6 4.6 11-11-2.2-2.2Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </span>
-                  <strong>AEGIS Quality Gate</strong>
-                  <p>Secrets, IaC, SAST, and policy packs block risky merges before build.</p>
-                </div>
-                <div className="pipeline-connector" aria-hidden="true">
-                  <span className="pipeline-connector__pulse pipeline-connector__pulse--active" />
-                </div>
-                <div className="pipeline-node pipeline-node--release">
-                  <span className="pipeline-node__badge">Release</span>
-                  <strong>Trusted Build</strong>
-                  <p>Only compliant artifacts advance to CI and deployment.</p>
-                </div>
+                {pipelineStages.map((stage, index) => (
+                  <Fragment key={stage.key}>
+                    <div
+                      className={[
+                        'pipeline-stage',
+                        `pipeline-stage--${stage.tone}`,
+                        stage.isGate ? 'pipeline-stage--gate' : '',
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                    >
+                      <span className="pipeline-stage__badge">{stage.badge}</span>
+                      {stage.isGate && (
+                        <span className="pipeline-stage__icon" aria-hidden="true">
+                          <svg viewBox="0 0 48 48" role="img" focusable="false">
+                            <path
+                              d="M24 6 8 12v11c0 9.4 6.8 18.5 16 21 9.2-2.5 16-11.6 16-21V12Z"
+                              fill="currentColor"
+                              opacity="0.22"
+                            />
+                            <path
+                              d="M24 8.2 10.4 13v10c0 8 5.8 15.8 13.6 18.3 7.8-2.5 13.6-10.3 13.6-18.3V13Z"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                            />
+                            <path
+                              d="M20.4 23.6 18 21.2l-2.2 2.2 4.6 4.6 11-11-2.2-2.2Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                      )}
+                      <strong>{stage.title}</strong>
+                      <p>{stage.description}</p>
+                    </div>
+                    {index < pipelineStages.length - 1 && (
+                      <div
+                        className={[
+                          'pipeline-connector',
+                          index >= 1 ? 'pipeline-connector--active' : '',
+                        ]
+                          .filter(Boolean)
+                          .join(' ')}
+                        aria-hidden="true"
+                      >
+                        <span
+                          className={[
+                            'pipeline-connector__pulse',
+                            index >= 1 ? 'pipeline-connector__pulse--active' : '',
+                          ]
+                            .filter(Boolean)
+                            .join(' ')}
+                        />
+                      </div>
+                    )}
+                  </Fragment>
+                ))}
               </div>
             </div>
           </motion.div>

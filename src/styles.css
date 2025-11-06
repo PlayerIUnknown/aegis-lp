@@ -146,13 +146,12 @@ a:focus {
   position: relative;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(160px, 1fr);
+  grid-auto-columns: minmax(180px, 1fr);
   align-items: stretch;
   gap: clamp(0.75rem, 2vw, 1.1rem);
 }
 
-.pipeline-node,
-.pipeline-gate {
+.pipeline-stage {
   position: relative;
   border-radius: var(--radius-md);
   padding: clamp(1.1rem, 2vw, 1.4rem);
@@ -163,19 +162,17 @@ a:focus {
   gap: 0.55rem;
 }
 
-.pipeline-node strong,
-.pipeline-gate strong {
+.pipeline-stage strong {
   font-size: 1.05rem;
 }
 
-.pipeline-node p,
-.pipeline-gate p {
+.pipeline-stage p {
   margin: 0;
   font-size: 0.9rem;
   color: rgba(210, 255, 226, 0.82);
 }
 
-.pipeline-node__badge {
+.pipeline-stage__badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -189,21 +186,26 @@ a:focus {
   background: rgba(18, 198, 106, 0.16);
 }
 
-.pipeline-node--source {
+.pipeline-stage--source {
   background: linear-gradient(135deg, rgba(12, 90, 56, 0.55), rgba(2, 20, 12, 0.82));
 }
 
-.pipeline-node--release {
-  background: linear-gradient(135deg, rgba(18, 198, 106, 0.5), rgba(2, 18, 11, 0.82));
-}
-
-.pipeline-gate {
+.pipeline-stage--gate {
   grid-column: span 2;
   background: linear-gradient(135deg, rgba(18, 198, 106, 0.28), rgba(5, 39, 22, 0.9));
   border-color: rgba(75, 255, 171, 0.45);
 }
 
-.pipeline-gate__icon {
+.pipeline-stage--build {
+  background: linear-gradient(135deg, rgba(18, 198, 106, 0.36), rgba(2, 22, 13, 0.88));
+  border-color: rgba(75, 255, 171, 0.35);
+}
+
+.pipeline-stage--release {
+  background: linear-gradient(135deg, rgba(18, 198, 106, 0.5), rgba(2, 18, 11, 0.82));
+}
+
+.pipeline-stage__icon {
   width: 56px;
   height: 56px;
   border-radius: 18px;
@@ -218,6 +220,7 @@ a:focus {
   position: relative;
   display: grid;
   place-items: center;
+  pointer-events: none;
 }
 
 .pipeline-connector::before {
@@ -232,6 +235,27 @@ a:focus {
   transform: translateY(-50%);
 }
 
+.pipeline-connector::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(75, 255, 171, 0.45);
+  border-top: 2px solid rgba(75, 255, 171, 0.45);
+  transform: translateY(-50%) rotate(45deg);
+  border-radius: 1px;
+}
+
+.pipeline-connector--active::before {
+  background: linear-gradient(90deg, rgba(75, 255, 171, 0.2), rgba(75, 255, 171, 0.65));
+}
+
+.pipeline-connector--active::after {
+  border-color: rgba(75, 255, 171, 0.75);
+}
+
 .pipeline-connector__pulse {
   position: relative;
   width: 16px;
@@ -244,6 +268,10 @@ a:focus {
 
 .pipeline-connector__pulse--active {
   background: var(--color-accent);
+}
+
+.pipeline-connector--active .pipeline-connector__pulse {
+  box-shadow: 0 0 22px rgba(75, 255, 171, 0.65);
 }
 
 .hero__compliance {
@@ -303,20 +331,19 @@ a:focus {
 .hero__visual {
   position: relative;
   display: grid;
-  gap: clamp(2rem, 5vw, 3rem);
+  gap: clamp(2.2rem, 5vw, 3.2rem);
+  align-content: start;
+  justify-items: stretch;
 }
 
 .hero__visual .hero__compliance {
-  position: static;
-  margin-left: auto;
-  max-width: clamp(18rem, 34vw, 24rem);
-}
-
-.hero__visual .hero__compliance {
-  position: absolute;
-  right: clamp(-1rem, -2vw, -2.5rem);
-  bottom: clamp(-3rem, -6vw, -4rem);
-  max-width: clamp(18rem, 36vw, 22rem);
+  position: relative;
+  justify-self: end;
+  margin-left: 0;
+  margin-top: clamp(1.75rem, 5vw, 2.75rem);
+  max-width: clamp(18rem, 34vw, 26rem);
+  width: min(100%, 26rem);
+  z-index: 2;
 }
 
 .hero__floating {
@@ -372,7 +399,8 @@ a:focus {
 
   .hero__visual .hero__compliance {
     margin-top: 2.5rem;
-    margin-left: 0;
+    justify-self: stretch;
+    width: 100%;
   }
 }
 
@@ -382,7 +410,7 @@ a:focus {
     grid-auto-columns: unset;
   }
 
-  .pipeline-gate {
+  .pipeline-stage--gate {
     grid-column: auto;
   }
 
@@ -393,6 +421,13 @@ a:focus {
     height: 100%;
     background: linear-gradient(180deg, rgba(75, 255, 171, 0.08), rgba(75, 255, 171, 0.45));
     transform: translateX(-50%);
+  }
+
+  .pipeline-connector::after {
+    top: auto;
+    bottom: -6px;
+    right: 50%;
+    transform: translateX(50%) rotate(135deg);
   }
 
   .pipeline-connector {
