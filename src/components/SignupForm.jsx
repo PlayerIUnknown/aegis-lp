@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
 const EMAIL_REGEX = /[^\s@]+@[^\s@]+\.[^\s@]+/;
-const STORAGE_KEY = 'aegis-email-signups';
+const STORAGE_KEY = '4th-wall-sec-email-signups';
 
 const storeSignup = (payload) => {
   try {
@@ -77,7 +77,7 @@ const SignupForm = ({
         )}
         <label className="input-group">
           <span className="sr-only">Email</span>
-          <input type="email" name="email" placeholder="work email" required autoComplete="email" />
+          <input type="email" name="email" placeholder="Work email" required autoComplete="email" />
         </label>
         <button type="submit" className={`button ${inline ? 'button--secondary' : 'button--primary'}`}>
           {submitLabel}
@@ -86,15 +86,10 @@ const SignupForm = ({
       {includeConsent && (
         <label className="checkbox">
           <input type="checkbox" name="consent" />
-          <span>I agree to receive security updates and launch invites from Aegis.</span>
+          <span>I agree to receive updates from 4th wall sec.</span>
         </label>
       )}
-      <p
-        id={messageId}
-        className={`form-message ${messageClass}`}
-        role="status"
-        aria-live="polite"
-      >
+      <p id={messageId} className={`form-message ${messageClass}`} role="status" aria-live="polite">
         {message}
       </p>
     </form>
