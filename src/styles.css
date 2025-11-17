@@ -109,6 +109,24 @@ select {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.brand-mark__product {
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.brand-mark__parent {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+.brand-mark__divider {
+  opacity: 0.65;
 }
 
 .nav__links {
@@ -165,6 +183,19 @@ select {
 
 .hero__lead {
   font-size: 1.1rem;
+}
+
+.hero__product-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(185, 115, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--accent-strong);
+  font-weight: 600;
+  margin: 0.5rem 0 1.5rem;
 }
 
 .hero__eyebrow,
@@ -346,7 +377,7 @@ select {
 
 .workflow {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
@@ -355,22 +386,115 @@ select {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.02);
   padding: 1.5rem;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.workflow-card__step {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  margin-bottom: 0.25rem;
+}
+
+.workflow-card__footnote {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.workflow-shot {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
-.workflow-card__image {
-  width: 100%;
-  padding: 1.5rem;
-  border-radius: var(--radius-md);
-  background: var(--bg-panel-strong);
-  box-shadow: var(--shadow-sm);
-  text-align: right;
+.workflow-shot__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
-.workflow-card__image span {
-  font-size: 2rem;
-  font-weight: 700;
+.workflow-shot__dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.workflow-shot__dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.workflow-shot__body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.workflow-shot__panel {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.workflow-shot__title {
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.4);
+  width: 60%;
+}
+
+.workflow-shot__chart {
+  flex: 1;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(255, 212, 121, 0.25), rgba(185, 115, 255, 0.5));
+}
+
+.workflow-shot__list {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.workflow-shot__list span {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.workflow-shot--pipeline {
+  background: radial-gradient(circle at top left, rgba(186, 135, 255, 0.4), transparent 70%), var(--bg-panel-strong);
+}
+
+.workflow-shot--rules {
+  background: radial-gradient(circle at top right, rgba(255, 212, 121, 0.3), transparent 70%), var(--bg-panel);
+}
+
+.workflow-shot--signals {
+  background: radial-gradient(circle at bottom left, rgba(86, 177, 255, 0.3), transparent 70%), var(--bg-panel-strong);
+}
+
+.workflow-shot--dashboard {
+  background: radial-gradient(circle at bottom right, rgba(255, 115, 166, 0.3), transparent 70%), var(--bg-panel);
 }
 
 .section--contact {

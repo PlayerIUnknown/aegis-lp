@@ -49,20 +49,32 @@ const solutionCards = [
 
 const workflowCards = [
   {
-    title: 'Add 4th wall sec to your pipeline',
-    description: 'Drop one snippet into GitHub, GitLab, Bitbucket, or Jenkins and the first scan runs in minutes.',
+    title: 'Add AEGIS to your pipeline',
+    description: 'Drop one snippet into GitHub, GitLab, Bitbucket, or Jenkins and let the first scan run within minutes.',
+    footnote: 'Supports GitHub, GitLab, Bitbucket, Jenkins',
+    screenshotLabel: 'Pipeline overview',
+    variant: 'pipeline',
   },
   {
     title: 'Define your rules',
-    description: 'Choose which repos block merges, configure required checks, and tailor alerts to each team.',
+    description: 'Choose which repos block merges, configure required checks, and tailor alerts to each team inside AEGIS.',
+    footnote: 'Map controls to SOC 2, ISO, or internal SLAs',
+    screenshotLabel: 'Policy designer',
+    variant: 'rules',
   },
   {
     title: 'Scan every commit',
-    description: 'Every push runs through the policy engine. Signals stay in sync across CI providers automatically.',
+    description: 'Every push runs through the AEGIS policy engine. Signals stay in sync across CI providers automatically.',
+    footnote: 'Secrets · SAST · IaC · Containers',
+    screenshotLabel: 'Live findings',
+    variant: 'signals',
   },
   {
-    title: 'Fix in dashboard',
+    title: 'Fix in the dashboard',
     description: 'See prioritized findings with triage paths, exports, and insights mapped to frameworks you follow.',
+    footnote: 'Assign owners, export evidence, notify instantly',
+    screenshotLabel: 'Unified dashboard',
+    variant: 'dashboard',
   },
 ];
 
@@ -90,7 +102,11 @@ const App = () => (
       <div className="container">
         <nav className="nav" aria-label="Primary">
           <a className="brand-mark" href="#hero">
-            4th wall sec
+            <span className="brand-mark__product">AEGIS</span>
+            <span className="brand-mark__divider" aria-hidden="true">
+              •
+            </span>
+            <span className="brand-mark__parent">4th wall sec</span>
           </a>
           <div className="nav__links">
             {navLinks.map((link) => (
@@ -105,12 +121,14 @@ const App = () => (
         </nav>
         <div className="hero__grid">
           <div className="hero__content">
-            <p className="hero__eyebrow">Secure your development flow</p>
-            <h1>Secure your code. Automatically.</h1>
+            <p className="hero__eyebrow">4th wall sec presents</p>
+            <h1>AEGIS secures every commit automatically.</h1>
             <p className="hero__lead">
-              Leverage every security signal before merges land. 4th wall sec catches secrets, IaC drift, and vulnerable
-              dependencies right inside your CI/CD pipelines.
+              4th wall sec is the parent company crafting operator-first security products. AEGIS is our flagship
+              release — a CI/CD-native guardian that watches secrets, IaC drift, and vulnerable dependencies before
+              code merges.
             </p>
+            <div className="hero__product-pill">First product from 4th wall sec</div>
             <div className="hero__actions">
               <button type="button" className="button button--primary">
                 Book a demo
@@ -145,7 +163,7 @@ const App = () => (
                 </div>
               </div>
               <div className="panel-card__body">
-                <h3>Drop into any workflow</h3>
+                <h3>4th wall sec built AEGIS for pipelines that never pause.</h3>
                 <p>Connect Git providers, pick environments, and watch policies enforce themselves.</p>
                 <ul className="preview-list">
                   {previewStages.map((stage) => (
@@ -162,7 +180,7 @@ const App = () => (
               </div>
             </div>
             <div className="panel-card panel-card--secondary">
-              <p>Add 4th wall sec to your pipeline and scan every commit.</p>
+              <p>Add AEGIS by 4th wall sec to your pipeline and scan every commit.</p>
               <div className="panel-card__grid">
                 <div>
                   <span className="micro-label">Status</span>
@@ -213,7 +231,7 @@ const App = () => (
         <div className="container">
           <div className="section__header">
             <p className="eyebrow">Solution</p>
-            <h2>One code snippet. Total code security.</h2>
+            <h2>AEGIS: one code snippet. Total code security.</h2>
             <p>Scan every commit, manage policy, and ship with a unified dashboard teams actually enjoy using.</p>
           </div>
           <div className="card-grid">
@@ -231,18 +249,39 @@ const App = () => (
         <div className="container">
           <div className="section__header">
             <p className="eyebrow">How it works</p>
-            <h2>Drop 4th wall sec into any pipeline.</h2>
-            <p>From onboarding to dashboards, everything mirrors the mockups provided — just with the 4th wall sec brand.</p>
+            <h2>4th wall sec presents AEGIS with the original mockup flow.</h2>
+            <p>Each step mirrors the design system from the mockups — now with AEGIS showing the exact dashboard views.</p>
           </div>
           <div className="workflow">
             {workflowCards.map((card, index) => (
               <article key={card.title} className="workflow-card">
-                <div className="workflow-card__image" aria-hidden="true">
-                  <span>{index + 1}</span>
+                <div className={`workflow-shot workflow-shot--${card.variant}`} aria-hidden="true">
+                  <div className="workflow-shot__header">
+                    <div className="workflow-shot__dots">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <p>{card.screenshotLabel}</p>
+                  </div>
+                  <div className="workflow-shot__body">
+                    <div className="workflow-shot__panel">
+                      <div className="workflow-shot__title"></div>
+                      <div className="workflow-shot__chart"></div>
+                    </div>
+                    <div className="workflow-shot__list">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
                 </div>
                 <div>
+                  <p className="workflow-card__step">Step {index + 1}</p>
                   <h3>{card.title}</h3>
                   <p>{card.description}</p>
+                  <p className="workflow-card__footnote">{card.footnote}</p>
                 </div>
               </article>
             ))}
@@ -256,13 +295,13 @@ const App = () => (
             <p className="eyebrow">Contact us</p>
             <h2>Ready to secure every commit?</h2>
             <p>
-              Reach out to the team behind 4th wall sec for launch updates, security partnerships, or platform support. We
-              respond within one business day.
+              Reach out to the parent team at 4th wall sec for launch updates, security partnerships, or platform
+              support. We respond within one business day.
             </p>
             <ul className="contact__details">
               <li>
                 <span>Email</span>
-                <a href="mailto:ask@4thwallsec.io">ask@4thwallsec.io</a>
+                <a href="mailto:hello@4thwallsec.com">hello@4thwallsec.com</a>
               </li>
               <li>
                 <span>Office</span>
@@ -287,8 +326,14 @@ const App = () => (
     <footer className="site-footer">
       <div className="container footer__inner">
         <div>
-          <span className="brand-mark">4th wall sec</span>
-          <p>Continuous security guardrails for teams shipping constantly.</p>
+          <span className="brand-mark">
+            <span className="brand-mark__product">AEGIS</span>
+            <span className="brand-mark__divider" aria-hidden="true">
+              •
+            </span>
+            <span className="brand-mark__parent">4th wall sec</span>
+          </span>
+          <p>4th wall sec builds operator-first security products. AEGIS is our flagship pipeline guardian.</p>
         </div>
         <div className="footer__links">
           {navLinks.map((link) => (
